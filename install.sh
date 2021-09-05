@@ -214,7 +214,7 @@ confirm() {
 install_dependencies() {
     apt update
     apt upgrade -y
-    apt install git curl php8.0-intl
+    apt install -y git curl php8.0-intl
 }
 
 install_controllpanel() {
@@ -268,7 +268,7 @@ migrate() {
 
 create_initial_user() {
     # Create user account
-    php artisan make:user
+    php artisan make:user || true
 }
 
 set_permissions() {
@@ -342,6 +342,8 @@ restart_nginx() {
 }
 
 main() {
+    info "ControlPanel.gg installation script"
+
     # pre-checks
     detect_distro
     check_os_comp
