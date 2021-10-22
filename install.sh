@@ -146,13 +146,6 @@ check_os_comp() {
     fi
 }
 
-check_pterodactyl_present() {
-    if [ ! -d "/var/www/pterodactyl" ]; then
-        print_error "Pterodactyl panel installation not detected. Please install Pterodactyl before using this script."
-        exit 1
-    fi
-}
-
 check_dashboard_present() {
     if [ -d "/var/www/dashboard" ]; then
         print_error "The dashboard is already installed on this machine!"
